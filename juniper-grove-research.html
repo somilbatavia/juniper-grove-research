@@ -1,0 +1,1185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Juniper Grove Research — Investment Letters</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ivory: #F5F0E8;
+    --cream: #EDE7DA;
+    --parchment: #E3DACB;
+    --dark-forest: #1A2A1A;
+    --deep-green: #2C3E2C;
+    --sage: #6B7F5E;
+    --sage-light: #8A9E7A;
+    --muted-gold: #A8935A;
+    --warm-gold: #C4A94D;
+    --bark: #3E3227;
+    --charcoal: #2A2420;
+    --soft-white: #FAF8F4;
+    --copper: #8B5E3C;
+    --moss: #4A5E3A;
+    --deep-sage: #3D5435;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--ivory);
+    color: var(--charcoal);
+    overflow-x: hidden;
+  }
+
+  /* ═══════════ HERO ═══════════ */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+    position: relative;
+    background: var(--dark-forest);
+    overflow: hidden;
+  }
+
+  .hero-grove-bg {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    opacity: 0.6;
+  }
+
+  .hero-grove-bg svg {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 80%;
+  }
+
+  .hero-mist {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(to top, rgba(26,42,26,0.95), rgba(26,42,26,0.4), transparent);
+    z-index: 1;
+  }
+
+  .hero-glow {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 50% 40% at 50% 30%, rgba(168,147,90,0.08), transparent),
+      radial-gradient(ellipse 80% 60% at 50% 100%, rgba(26,42,26,0.9), transparent);
+    z-index: 1;
+  }
+
+  .hero-noise {
+    position: absolute;
+    inset: 0;
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    z-index: 2;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 3;
+    max-width: 800px;
+  }
+
+  .logo-mark {
+    display: inline-block;
+    margin-bottom: 2.5rem;
+    opacity: 0;
+    animation: fadeDown 1.2s ease-out 0.3s forwards;
+  }
+
+  .logo-mark svg { width: 56px; height: 56px; }
+
+  .hero-overline {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    font-size: 0.75rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--muted-gold);
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation: fadeDown 1.2s ease-out 0.5s forwards;
+  }
+
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(2.8rem, 6vw, 5.5rem);
+    line-height: 1.1;
+    color: var(--soft-white);
+    margin-bottom: 0.3em;
+    opacity: 0;
+    animation: fadeDown 1.2s ease-out 0.7s forwards;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--muted-gold);
+  }
+
+  .hero-sub {
+    font-family: 'Libre Baskerville', serif;
+    font-size: clamp(0.95rem, 1.5vw, 1.15rem);
+    font-weight: 400;
+    font-style: italic;
+    color: rgba(245, 240, 232, 0.55);
+    margin-top: 1.5rem;
+    line-height: 1.7;
+    opacity: 0;
+    animation: fadeDown 1.2s ease-out 0.9s forwards;
+  }
+
+  .hero-divider {
+    width: 60px;
+    height: 1px;
+    background: var(--muted-gold);
+    margin: 2.5rem auto;
+    opacity: 0;
+    animation: fadeDown 1.2s ease-out 1.1s forwards;
+  }
+
+  .hero-cta {
+    margin-top: 0.5rem;
+    opacity: 0;
+    animation: fadeDown 1.2s ease-out 1.3s forwards;
+  }
+
+  .hero-cta a {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--muted-gold);
+    text-decoration: none;
+    border: 1px solid rgba(168, 147, 90, 0.4);
+    padding: 1rem 2.8rem;
+    display: inline-block;
+    transition: all 0.4s ease;
+  }
+
+  .hero-cta a:hover {
+    background: var(--muted-gold);
+    color: var(--dark-forest);
+    border-color: var(--muted-gold);
+  }
+
+  .scroll-indicator {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    opacity: 0;
+    animation: fadeDown 1.2s ease-out 1.6s forwards;
+  }
+
+  .scroll-indicator span {
+    display: block;
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, rgba(168,147,90,0.5), transparent);
+    margin: 0 auto;
+    animation: scrollPulse 2s ease-in-out infinite;
+  }
+
+  /* ═══════════ PHOTO BREAK ═══════════ */
+  .photo-break {
+    position: relative;
+    height: 50vh;
+    min-height: 350px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .photo-break-bg {
+    position: absolute;
+    inset: 0;
+    /* REPLACE: Add your juniper grove photo as background-image here */
+    /* Example: background-image: url('your-juniper-photo.jpg'); */
+    background-color: var(--deep-green);
+    background-size: cover;
+    background-position: center;
+  }
+
+  .photo-break-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(26, 42, 26, 0.7);
+  }
+
+  .photo-break-scene {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+  }
+
+  .photo-break-scene svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .photo-break-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 2rem;
+  }
+
+  .photo-break-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: clamp(1.4rem, 3vw, 2.2rem);
+    color: var(--soft-white);
+    max-width: 600px;
+    line-height: 1.5;
+  }
+
+  .photo-break-attr {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--muted-gold);
+    margin-top: 1.5rem;
+  }
+
+  /* ═══════════ PHILOSOPHY ═══════════ */
+  .philosophy {
+    padding: 8rem 2rem;
+    max-width: 720px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+  }
+
+  .philosophy-branch {
+    position: absolute;
+    top: 3rem;
+    right: -80px;
+    opacity: 0.08;
+    width: 200px;
+    height: 300px;
+  }
+
+  .philosophy-branch-left {
+    position: absolute;
+    bottom: 2rem;
+    left: -100px;
+    opacity: 0.06;
+    width: 220px;
+    height: 350px;
+    transform: scaleX(-1);
+  }
+
+  .section-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin-bottom: 2.5rem;
+  }
+
+  .philosophy h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    line-height: 1.35;
+    color: var(--dark-forest);
+    margin-bottom: 2rem;
+  }
+
+  .philosophy p {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 0.95rem;
+    line-height: 1.9;
+    color: var(--bark);
+    opacity: 0.8;
+  }
+
+  .philosophy p + p { margin-top: 1.5rem; }
+
+  .gold-rule {
+    width: 40px;
+    height: 1px;
+    background: var(--muted-gold);
+    margin: 3rem auto;
+  }
+
+  /* ═══════════ APPROACH ═══════════ */
+  .approach {
+    background: var(--dark-forest);
+    padding: 7rem 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .approach::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 50% 80% at 80% 20%, rgba(107,127,94,0.1), transparent);
+  }
+
+  .approach-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .approach .section-label {
+    color: var(--muted-gold);
+    text-align: center;
+  }
+
+  .approach h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    color: var(--soft-white);
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .pillars {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: rgba(107, 127, 94, 0.2);
+    border: 1px solid rgba(107, 127, 94, 0.2);
+  }
+
+  .pillar {
+    background: var(--dark-forest);
+    padding: 3rem 2.5rem;
+    text-align: center;
+    transition: background 0.4s ease;
+  }
+
+  .pillar:hover { background: rgba(44, 62, 44, 0.8); }
+
+  .pillar-icon {
+    width: 48px;
+    height: 48px;
+    margin: 0 auto 1.5rem;
+    opacity: 0.7;
+  }
+
+  .pillar h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: 1.3rem;
+    color: var(--soft-white);
+    margin-bottom: 1rem;
+    letter-spacing: 0.02em;
+  }
+
+  .pillar p {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.82rem;
+    line-height: 1.75;
+    color: rgba(245, 240, 232, 0.5);
+    font-weight: 300;
+  }
+
+  /* ═══════════ PHOTO SPLIT ═══════════ */
+  .photo-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 500px;
+  }
+
+  .photo-split-image {
+    position: relative;
+    overflow: hidden;
+    min-height: 400px;
+  }
+
+  .photo-split-image-bg {
+    position: absolute;
+    inset: 0;
+    /* REPLACE: Add your second juniper grove photo here */
+    background-color: var(--deep-green);
+    background-size: cover;
+    background-position: center;
+  }
+
+  .photo-split-scene {
+    position: absolute;
+    inset: 0;
+  }
+
+  .photo-split-scene svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .photo-split-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 5rem 4rem;
+    background: var(--cream);
+    position: relative;
+  }
+
+  .photo-split-text::before {
+    content: '\201C';
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 8rem;
+    color: var(--parchment);
+    position: absolute;
+    top: 2rem;
+    left: 3rem;
+    line-height: 1;
+  }
+
+  .photo-split-text blockquote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1.5;
+    color: var(--dark-forest);
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .photo-split-text cite {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--sage);
+    font-style: normal;
+  }
+
+  /* ═══════════ WHAT YOU RECEIVE ═══════════ */
+  .offering {
+    padding: 7rem 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .offering .section-label,
+  .offering h2 { text-align: center; }
+
+  .offering h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    color: var(--dark-forest);
+    margin-bottom: 4rem;
+  }
+
+  .offering-list {
+    display: grid;
+    gap: 0;
+    border-top: 1px solid var(--parchment);
+  }
+
+  .offering-item {
+    display: grid;
+    grid-template-columns: 60px 140px 1fr;
+    gap: 2rem;
+    padding: 2.2rem 0;
+    border-bottom: 1px solid var(--parchment);
+    align-items: center;
+    transition: all 0.3s ease;
+  }
+
+  .offering-item:hover { padding-left: 1rem; }
+
+  .offering-item-icon {
+    width: 40px;
+    height: 40px;
+    opacity: 0.5;
+  }
+
+  .offering-item-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--dark-forest);
+    font-style: italic;
+  }
+
+  .offering-item-desc {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+    line-height: 1.7;
+    color: var(--bark);
+    font-weight: 300;
+    opacity: 0.75;
+  }
+
+  /* ═══════════ GROVE DIVIDER ═══════════ */
+  .grove-divider {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+    background: var(--ivory);
+  }
+
+  .grove-divider svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* ═══════════ SIGNUP ═══════════ */
+  .signup {
+    position: relative;
+    padding: 8rem 2rem;
+    text-align: center;
+    overflow: hidden;
+    background: var(--dark-forest);
+  }
+
+  .signup-grove-scene {
+    position: absolute;
+    inset: 0;
+    opacity: 0.15;
+  }
+
+  .signup-grove-scene svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .signup-glow {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 60% 50% at 50% 50%, rgba(168,147,90,0.06), transparent);
+  }
+
+  .signup-inner {
+    max-width: 520px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+  }
+
+  .signup .section-label {
+    color: var(--muted-gold);
+  }
+
+  .signup h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    color: var(--soft-white);
+    margin-bottom: 1rem;
+  }
+
+  .signup p {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.82rem;
+    line-height: 1.7;
+    color: rgba(245,240,232,0.45);
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+  }
+
+  .signup-form {
+    display: flex;
+    gap: 0;
+    max-width: 460px;
+    margin: 0 auto;
+  }
+
+  .signup-form input {
+    flex: 1;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 300;
+    padding: 1rem 1.4rem;
+    border: 1px solid rgba(107,127,94,0.3);
+    background: rgba(245,240,232,0.05);
+    color: var(--soft-white);
+    outline: none;
+    transition: border-color 0.3s ease;
+    letter-spacing: 0.02em;
+  }
+
+  .signup-form input::placeholder { color: rgba(245,240,232,0.25); }
+  .signup-form input:focus { border-color: var(--muted-gold); }
+
+  .signup-form button {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    padding: 1rem 2rem;
+    background: var(--muted-gold);
+    color: var(--dark-forest);
+    border: 1px solid var(--muted-gold);
+    cursor: pointer;
+    transition: all 0.4s ease;
+    white-space: nowrap;
+  }
+
+  .signup-form button:hover {
+    background: var(--warm-gold);
+    border-color: var(--warm-gold);
+  }
+
+  .signup-note {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.7rem;
+    color: rgba(245,240,232,0.2);
+    margin-top: 1.5rem;
+    font-weight: 300;
+  }
+
+  /* ═══════════ FOOTER ═══════════ */
+  .footer {
+    background: var(--charcoal);
+    padding: 3.5rem 2rem;
+    text-align: center;
+  }
+
+  .footer-brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    font-size: 1.1rem;
+    color: rgba(245, 240, 232, 0.4);
+    letter-spacing: 0.1em;
+    margin-bottom: 1rem;
+  }
+
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .footer-links a {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(245, 240, 232, 0.25);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .footer-links a:hover { color: var(--muted-gold); }
+
+  .footer-copy {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.65rem;
+    color: rgba(245, 240, 232, 0.15);
+    letter-spacing: 0.1em;
+  }
+
+  /* ═══════════ ANIMATIONS ═══════════ */
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.3; transform: scaleY(1); }
+    50% { opacity: 0.7; transform: scaleY(1.2); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ═══════════ RESPONSIVE ═══════════ */
+  @media (max-width: 768px) {
+    .pillars { grid-template-columns: 1fr; }
+    .offering-item {
+      grid-template-columns: 1fr;
+      gap: 0.5rem;
+    }
+    .offering-item-icon { display: none; }
+    .signup-form { flex-direction: column; }
+    .signup-form input, .signup-form button { width: 100%; }
+    .photo-split { grid-template-columns: 1fr; }
+    .photo-split-text { padding: 3rem 2rem; }
+    .photo-split-text::before { font-size: 5rem; left: 1.5rem; }
+    .philosophy-branch, .philosophy-branch-left { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════ HERO WITH GROVE SCENE ═══════════ -->
+<section class="hero">
+  <div class="hero-grove-bg">
+    <svg viewBox="0 0 1400 600" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#1A2A1A"/>
+          <stop offset="100%" stop-color="#223322"/>
+        </linearGradient>
+        <linearGradient id="treeGrad1" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#3D5435"/>
+          <stop offset="100%" stop-color="#2A3E24"/>
+        </linearGradient>
+        <linearGradient id="treeGrad2" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#4A5E3A"/>
+          <stop offset="100%" stop-color="#3A4E2E"/>
+        </linearGradient>
+        <linearGradient id="treeGrad3" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#2E4228"/>
+          <stop offset="100%" stop-color="#1E3018"/>
+        </linearGradient>
+        <radialGradient id="moonGlow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="rgba(168,147,90,0.15)"/>
+          <stop offset="100%" stop-color="transparent"/>
+        </radialGradient>
+      </defs>
+      <rect width="1400" height="600" fill="url(#skyGrad)"/>
+      <circle cx="700" cy="80" r="200" fill="url(#moonGlow)"/>
+      <circle cx="700" cy="80" r="8" fill="rgba(245,240,232,0.08)"/>
+      <circle cx="200" cy="60" r="1" fill="rgba(245,240,232,0.15)"/>
+      <circle cx="450" cy="40" r="0.8" fill="rgba(245,240,232,0.1)"/>
+      <circle cx="900" cy="55" r="1.2" fill="rgba(245,240,232,0.12)"/>
+      <circle cx="1100" cy="30" r="0.7" fill="rgba(245,240,232,0.08)"/>
+      <circle cx="1250" cy="70" r="0.9" fill="rgba(245,240,232,0.1)"/>
+      <circle cx="350" cy="90" r="0.6" fill="rgba(245,240,232,0.07)"/>
+
+      <!-- Background trees -->
+      <g opacity="0.3">
+        <path d="M50,600 L50,350 C50,350 30,340 20,300 C15,280 35,260 50,250 C40,230 55,200 50,180 C50,180 60,200 65,230 C75,220 80,250 70,270 C85,280 80,310 65,340 L65,600Z" fill="url(#treeGrad3)"/>
+        <path d="M180,600 L180,380 C180,380 160,370 155,340 C150,320 170,300 180,290 C175,275 185,255 180,240 C180,240 190,260 195,280 C205,270 210,295 200,310 C215,320 205,350 195,370 L195,600Z" fill="url(#treeGrad3)"/>
+        <path d="M1250,600 L1250,360 C1250,360 1230,350 1220,310 C1215,290 1235,270 1250,260 C1240,240 1255,210 1250,190 C1250,190 1265,215 1270,240 C1280,230 1285,260 1275,280 C1290,290 1280,320 1270,350 L1270,600Z" fill="url(#treeGrad3)"/>
+        <path d="M1350,600 L1350,390 C1350,390 1335,380 1330,350 C1325,335 1340,320 1350,310 C1345,298 1355,280 1350,268 C1350,268 1360,285 1365,300 C1372,292 1376,315 1368,328 C1378,335 1372,358 1365,378 L1365,600Z" fill="url(#treeGrad3)"/>
+      </g>
+
+      <!-- Midground trees -->
+      <g opacity="0.5">
+        <path d="M300,600 L300,300 C300,300 270,285 260,240 C252,210 280,185 300,170 C288,148 305,115 300,90 C300,90 318,120 325,155 C340,140 348,175 335,200 C355,212 345,250 330,280 L330,600Z" fill="url(#treeGrad1)"/>
+        <path d="M500,600 L500,320 C500,320 475,308 468,270 C462,248 485,228 500,218 C490,200 505,175 500,158 C500,158 515,180 520,208 C532,198 538,225 528,245 C545,255 537,285 525,308 L525,600Z" fill="url(#treeGrad2)"/>
+        <path d="M950,600 L950,280 C950,280 925,265 915,220 C908,195 935,170 950,158 C938,138 955,105 950,85 C950,85 968,112 975,148 C990,135 998,168 985,195 C1005,208 995,248 980,270 L980,600Z" fill="url(#treeGrad1)"/>
+        <path d="M1120,600 L1120,330 C1120,330 1098,318 1092,285 C1086,265 1108,248 1120,238 C1112,222 1125,198 1120,182 C1120,182 1135,202 1140,228 C1152,218 1156,242 1148,260 C1162,270 1155,298 1145,320 L1145,600Z" fill="url(#treeGrad2)"/>
+      </g>
+
+      <!-- Foreground trees -->
+      <g opacity="0.7">
+        <line x1="120" y1="600" x2="120" y2="260" stroke="#2A3520" stroke-width="8"/>
+        <path d="M120,260 C120,260 85,250 75,200 C68,168 95,142 120,128 C105,105 125,65 120,38 C120,38 142,72 148,110 C168,95 178,135 162,165 C185,178 175,225 155,248 L120,260Z" fill="url(#treeGrad2)"/>
+        <path d="M120,340 C120,340 95,332 88,300 C82,278 100,265 120,258 C120,258 140,265 152,300 C158,332 135,340 120,340Z" fill="url(#treeGrad1)"/>
+        <circle cx="98" cy="188" r="3" fill="rgba(90,110,140,0.5)"/>
+        <circle cx="145" cy="155" r="2.5" fill="rgba(90,110,140,0.4)"/>
+        <circle cx="108" cy="225" r="2" fill="rgba(90,110,140,0.35)"/>
+
+        <line x1="1300" y1="600" x2="1300" y2="240" stroke="#2A3520" stroke-width="7"/>
+        <path d="M1300,240 C1300,240 1268,230 1260,185 C1254,158 1278,135 1300,122 C1288,102 1305,68 1300,45 C1300,45 1318,75 1325,108 C1342,95 1350,130 1338,158 C1358,170 1348,215 1332,235 L1300,240Z" fill="url(#treeGrad1)"/>
+        <path d="M1300,320 C1300,320 1278,312 1272,285 C1268,268 1282,255 1300,248 C1300,248 1318,255 1328,285 C1332,312 1312,320 1300,320Z" fill="url(#treeGrad2)"/>
+        <circle cx="1278" cy="172" r="2.5" fill="rgba(90,110,140,0.45)"/>
+        <circle cx="1325" cy="148" r="2" fill="rgba(90,110,140,0.35)"/>
+      </g>
+
+      <!-- Ground -->
+      <path d="M0,520 Q200,500 350,515 Q500,530 700,510 Q900,490 1050,505 Q1200,520 1400,500 L1400,600 L0,600Z" fill="#1E2E18" opacity="0.5"/>
+      <path d="M0,550 Q250,535 500,545 Q700,555 900,540 Q1100,525 1400,545 L1400,600 L0,600Z" fill="#1A2A14" opacity="0.7"/>
+      <ellipse cx="400" cy="565" rx="30" ry="5" fill="rgba(74,94,58,0.2)"/>
+      <ellipse cx="800" cy="558" rx="25" ry="4" fill="rgba(74,94,58,0.15)"/>
+    </svg>
+  </div>
+  <div class="hero-mist"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-noise"></div>
+  <div class="hero-content">
+    <div class="logo-mark">
+      <svg viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M28 6 C28 6, 30 18, 28 28 C26 18, 28 6, 28 6Z" fill="rgba(168,147,90,0.6)"/>
+        <path d="M28 10 C28 10, 38 20, 33 32 C36 22, 28 10, 28 10Z" fill="rgba(107,127,94,0.7)"/>
+        <path d="M28 10 C28 10, 18 20, 23 32 C20 22, 28 10, 28 10Z" fill="rgba(107,127,94,0.5)"/>
+        <path d="M28 17 C28 17, 42 24, 37 36 C40 27, 28 17, 28 17Z" fill="rgba(107,127,94,0.4)"/>
+        <path d="M28 17 C28 17, 14 24, 19 36 C16 27, 28 17, 28 17Z" fill="rgba(107,127,94,0.3)"/>
+        <circle cx="22" cy="22" r="1.5" fill="rgba(90,110,140,0.4)"/>
+        <circle cx="35" cy="26" r="1.2" fill="rgba(90,110,140,0.3)"/>
+        <line x1="28" y1="28" x2="28" y2="50" stroke="rgba(168,147,90,0.4)" stroke-width="1.2"/>
+        <circle cx="28" cy="44" r="2" fill="rgba(168,147,90,0.2)"/>
+      </svg>
+    </div>
+    <p class="hero-overline">Investment Letters from</p>
+    <h1>Juniper Grove<br><em>Research</em></h1>
+    <p class="hero-sub">One stock. One thesis. Every week.<br>Deep conviction in a distracted market.</p>
+    <div class="hero-divider"></div>
+    <div class="hero-cta">
+      <a href="#subscribe">Enter the Grove</a>
+    </div>
+  </div>
+  <div class="scroll-indicator"><span></span></div>
+</section>
+
+<!-- ═══════════ PHILOSOPHY ═══════════ -->
+<section class="philosophy">
+  <svg class="philosophy-branch" viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg">
+    <path d="M100,300 C100,300 95,250 100,200 C105,150 90,120 100,80 C110,40 100,0 100,0" stroke="#3D5435" stroke-width="2" fill="none"/>
+    <path d="M100,220 C100,220 130,200 145,180" stroke="#3D5435" stroke-width="1.5" fill="none"/>
+    <path d="M100,180 C100,180 70,155 55,140" stroke="#3D5435" stroke-width="1.5" fill="none"/>
+    <path d="M100,140 C100,140 135,125 150,105" stroke="#3D5435" stroke-width="1.2" fill="none"/>
+    <path d="M100,100 C100,100 72,85 60,68" stroke="#3D5435" stroke-width="1.2" fill="none"/>
+    <ellipse cx="145" cy="175" rx="15" ry="20" fill="#4A5E3A" opacity="0.4"/>
+    <ellipse cx="55" cy="135" rx="18" ry="22" fill="#4A5E3A" opacity="0.3"/>
+    <ellipse cx="150" cy="100" rx="14" ry="18" fill="#4A5E3A" opacity="0.35"/>
+    <ellipse cx="58" cy="65" rx="16" ry="20" fill="#4A5E3A" opacity="0.25"/>
+    <circle cx="140" cy="185" r="2.5" fill="rgba(90,110,140,0.3)"/>
+    <circle cx="60" cy="145" r="2" fill="rgba(90,110,140,0.25)"/>
+  </svg>
+  <svg class="philosophy-branch-left" viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg">
+    <path d="M100,300 C100,300 105,240 100,190 C95,140 110,110 100,70 C90,30 100,0 100,0" stroke="#3D5435" stroke-width="2" fill="none"/>
+    <path d="M100,230 C100,230 130,210 148,195" stroke="#3D5435" stroke-width="1.5" fill="none"/>
+    <path d="M100,170 C100,170 68,150 52,132" stroke="#3D5435" stroke-width="1.5" fill="none"/>
+    <ellipse cx="148" cy="190" rx="16" ry="22" fill="#4A5E3A" opacity="0.35"/>
+    <ellipse cx="52" cy="128" rx="14" ry="18" fill="#4A5E3A" opacity="0.3"/>
+    <circle cx="152" cy="195" r="2" fill="rgba(90,110,140,0.25)"/>
+  </svg>
+
+  <div class="reveal">
+    <p class="section-label">Our Philosophy</p>
+    <h2>In a market full of noise,<br>we chose silence.</h2>
+    <div class="gold-rule"></div>
+    <p>Juniper Grove Research was founded by two brothers who believe the best investment ideas come from deep, patient study — not from chasing headlines or following the crowd.</p>
+    <p>Each week, we enter the grove. We study one company with the discipline of scholars and the conviction of allocators. When we emerge, we share what we've found — a single investment thesis, rigorously built and clearly presented.</p>
+    <p>No filler. No fluff. No fifteen stocks to watch this week. Just one name, one thesis, and the complete research to back it up.</p>
+  </div>
+</section>
+
+<!-- ═══════════ PHOTO BREAK 1 ═══════════ -->
+<section class="photo-break">
+  <div class="photo-break-bg">
+    <!-- 
+      ═══════════════════════════════════════════════════
+      TO ADD YOUR PHOTO:
+      1. Find a photo on Unsplash.com — search "juniper trees" or "evergreen forest misty"
+      2. Download it and place it in the same folder as this HTML file
+      3. Add this CSS to .photo-break-bg above:
+         background-image: url('your-photo-filename.jpg');
+      4. The SVG scene below will be hidden once you add a photo
+      ═══════════════════════════════════════════════════
+    -->
+  </div>
+  <div class="photo-break-scene">
+    <svg viewBox="0 0 1400 400" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="pbGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#2C3E2C"/>
+          <stop offset="100%" stop-color="#1A2A1A"/>
+        </linearGradient>
+        <radialGradient id="pbLight" cx="30%" cy="30%" r="60%">
+          <stop offset="0%" stop-color="rgba(168,147,90,0.06)"/>
+          <stop offset="100%" stop-color="transparent"/>
+        </radialGradient>
+      </defs>
+      <rect width="1400" height="400" fill="url(#pbGrad)"/>
+      <rect width="1400" height="400" fill="url(#pbLight)"/>
+      
+      <!-- Misty layered grove -->
+      <g opacity="0.2">
+        <path d="M0,400 L0,180 Q100,160 200,200 Q350,250 450,180 Q550,110 700,160 Q850,210 950,140 Q1050,70 1200,130 Q1300,170 1400,150 L1400,400Z" fill="#4A5E3A"/>
+      </g>
+      <g opacity="0.15">
+        <path d="M0,400 L0,230 Q150,210 300,260 Q450,310 600,230 Q750,150 900,210 Q1050,270 1200,220 Q1350,170 1400,200 L1400,400Z" fill="#6B7F5E"/>
+      </g>
+      <g opacity="0.1">
+        <path d="M0,400 L0,280 Q200,260 400,300 Q600,340 800,270 Q1000,200 1200,260 Q1400,320 1400,290 L1400,400Z" fill="#8A9E7A"/>
+      </g>
+      
+      <!-- Floating particles / fireflies -->
+      <circle cx="250" cy="140" r="2" fill="rgba(168,147,90,0.2)">
+        <animate attributeName="opacity" values="0.1;0.3;0.1" dur="4s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="600" cy="100" r="2.5" fill="rgba(168,147,90,0.15)">
+        <animate attributeName="opacity" values="0.05;0.25;0.05" dur="5s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="950" cy="120" r="1.8" fill="rgba(168,147,90,0.18)">
+        <animate attributeName="opacity" values="0.1;0.3;0.1" dur="3.5s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="1200" cy="160" r="2" fill="rgba(168,147,90,0.12)">
+        <animate attributeName="opacity" values="0.05;0.2;0.05" dur="4.5s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="400" cy="180" r="1.5" fill="rgba(168,147,90,0.15)">
+        <animate attributeName="opacity" values="0.1;0.25;0.1" dur="3s" repeatCount="indefinite"/>
+      </circle>
+    </svg>
+  </div>
+  <div class="photo-break-overlay"></div>
+  <div class="photo-break-content reveal">
+    <p class="photo-break-quote">"The stock market is a device for transferring money from the impatient to the patient."</p>
+    <p class="photo-break-attr">Warren Buffett</p>
+  </div>
+</section>
+
+<!-- ═══════════ APPROACH ═══════════ -->
+<section class="approach">
+  <div class="approach-inner">
+    <div class="reveal">
+      <p class="section-label">Our Approach</p>
+      <h2>Three pillars of conviction</h2>
+    </div>
+    <div class="pillars reveal">
+      <div class="pillar">
+        <svg class="pillar-icon" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="24" cy="24" r="18" stroke="rgba(168,147,90,0.3)" stroke-width="1" fill="none"/>
+          <circle cx="24" cy="24" r="6" fill="rgba(168,147,90,0.4)"/>
+          <line x1="24" y1="6" x2="24" y2="14" stroke="rgba(168,147,90,0.2)" stroke-width="0.8"/>
+          <line x1="24" y1="34" x2="24" y2="42" stroke="rgba(168,147,90,0.2)" stroke-width="0.8"/>
+          <line x1="6" y1="24" x2="14" y2="24" stroke="rgba(168,147,90,0.2)" stroke-width="0.8"/>
+          <line x1="34" y1="24" x2="42" y2="24" stroke="rgba(168,147,90,0.2)" stroke-width="0.8"/>
+        </svg>
+        <h3>Concentration</h3>
+        <p>One stock per week. We believe depth defeats breadth. While others scan hundreds of tickers, we study one until we understand it completely.</p>
+      </div>
+      <div class="pillar">
+        <svg class="pillar-icon" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+          <rect x="8" y="12" width="32" height="24" rx="1" stroke="rgba(168,147,90,0.3)" stroke-width="1" fill="none"/>
+          <line x1="8" y1="20" x2="40" y2="20" stroke="rgba(168,147,90,0.2)" stroke-width="0.8"/>
+          <line x1="14" y1="26" x2="34" y2="26" stroke="rgba(168,147,90,0.15)" stroke-width="0.8"/>
+          <line x1="14" y1="31" x2="28" y2="31" stroke="rgba(168,147,90,0.15)" stroke-width="0.8"/>
+          <circle cx="36" cy="12" r="4" fill="rgba(107,127,94,0.4)" stroke="rgba(168,147,90,0.3)" stroke-width="0.8"/>
+          <path d="M34,12 L35.5,11 L37,13" stroke="rgba(168,147,90,0.5)" stroke-width="0.8" fill="none"/>
+        </svg>
+        <h3>Transparency</h3>
+        <p>Every thesis comes with the models, assumptions, and research behind it. We don't just tell you what we think — we show you how we got there.</p>
+      </div>
+      <div class="pillar">
+        <svg class="pillar-icon" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+          <path d="M24,6 L24,42" stroke="rgba(168,147,90,0.3)" stroke-width="1.2"/>
+          <path d="M24,6 C24,6 32,14 32,24 C32,34 24,42 24,42 C24,42 16,34 16,24 C16,14 24,6 24,6Z" stroke="rgba(168,147,90,0.3)" stroke-width="1" fill="rgba(107,127,94,0.15)"/>
+          <circle cx="24" cy="24" r="3" fill="rgba(168,147,90,0.35)"/>
+        </svg>
+        <h3>Independence</h3>
+        <p>No sponsors. No conflicts. No one paying us to say something we don't believe. Our only obligation is to the quality of our research.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ PHOTO SPLIT ═══════════ -->
+<section class="photo-split">
+  <div class="photo-split-image">
+    <div class="photo-split-image-bg">
+      <!--
+        ═══════════════════════════════════════════════════
+        TO ADD YOUR PHOTO:
+        1. Search Unsplash for "sunlight through trees" or "forest path morning light"
+        2. Add: background-image: url('your-photo.jpg'); to .photo-split-image-bg
+        ═══════════════════════════════════════════════════
+      -->
+    </div>
+    <div class="photo-split-scene">
+      <svg viewBox="0 0 700 500" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="splitGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#1E3018"/>
+            <stop offset="50%" stop-color="#2C3E2C"/>
+            <stop offset="100%" stop-color="#1A2A1A"/>
+          </linearGradient>
+          <radialGradient id="splitLight" cx="60%" cy="20%" r="50%">
+            <stop offset="0%" stop-color="rgba(168,147,90,0.08)"/>
+            <stop offset="100%" stop-color="transparent"/>
+          </radialGradient>
+        </defs>
+        <rect width="700" height="500" fill="url(#splitGrad)"/>
+        <rect width="700" height="500" fill="url(#splitLight)"/>
+
+        <!-- Close-up juniper branches -->
+        <g opacity="0.6">
+          <path d="M-50,500 L-50,200 C-50,200 0,180 50,220 C100,260 80,300 120,280 C160,260 150,200 200,180 C250,160 230,220 280,240 C330,260 300,180 350,160 C350,160 360,200 340,240 L350,500Z" fill="#3D5435"/>
+        </g>
+        <g opacity="0.45">
+          <path d="M250,500 L250,250 C250,250 280,230 320,260 C360,290 340,320 380,300 C420,280 400,230 450,210 C500,190 480,250 520,260 C520,260 530,300 510,340 L520,500Z" fill="#4A5E3A"/>
+        </g>
+        <g opacity="0.3">
+          <path d="M500,500 L500,280 C500,280 540,260 580,290 C620,320 600,350 650,330 C700,310 680,270 720,250 L720,500Z" fill="#5A6E4A"/>
+        </g>
+
+        <!-- Light rays -->
+        <line x1="420" y1="0" x2="380" y2="500" stroke="rgba(168,147,90,0.04)" stroke-width="30"/>
+        <line x1="520" y1="0" x2="490" y2="500" stroke="rgba(168,147,90,0.03)" stroke-width="20"/>
+        <line x1="300" y1="0" x2="270" y2="500" stroke="rgba(168,147,90,0.025)" stroke-width="25"/>
+
+        <!-- Juniper berries -->
+        <circle cx="120" cy="270" r="4" fill="rgba(70,95,120,0.4)"/>
+        <circle cx="125" cy="278" r="3.5" fill="rgba(70,95,120,0.35)"/>
+        <circle cx="115" cy="275" r="3" fill="rgba(80,105,130,0.3)"/>
+        <circle cx="320" cy="255" r="3.5" fill="rgba(70,95,120,0.35)"/>
+        <circle cx="480" cy="290" r="4" fill="rgba(70,95,120,0.3)"/>
+      </svg>
+    </div>
+  </div>
+  <div class="photo-split-text">
+    <div class="reveal">
+      <blockquote>The juniper endures where other trees cannot. It grows slowly, roots deeply, and outlasts everything around it. That is how we invest.</blockquote>
+      <cite>Juniper Grove Research</cite>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ WHAT YOU RECEIVE ═══════════ -->
+<section class="offering">
+  <div class="reveal">
+    <p class="section-label">What You Receive</p>
+    <h2>Inside every letter</h2>
+    <div class="offering-list">
+      <div class="offering-item">
+        <svg class="offering-item-icon" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8,8 L32,8 L32,35 L8,35Z" stroke="var(--sage)" stroke-width="1" fill="none"/>
+          <line x1="13" y1="15" x2="27" y2="15" stroke="var(--sage)" stroke-width="0.8" opacity="0.5"/>
+          <line x1="13" y1="20" x2="27" y2="20" stroke="var(--sage)" stroke-width="0.8" opacity="0.5"/>
+          <line x1="13" y1="25" x2="22" y2="25" stroke="var(--sage)" stroke-width="0.8" opacity="0.5"/>
+        </svg>
+        <span class="offering-item-label">The Thesis</span>
+        <span class="offering-item-desc">A clear, concise investment thesis published weekly on Substack — free for all readers.</span>
+      </div>
+      <div class="offering-item">
+        <svg class="offering-item-icon" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+          <rect x="6" y="6" width="28" height="28" rx="2" stroke="var(--sage)" stroke-width="1" fill="none"/>
+          <line x1="6" y1="14" x2="34" y2="14" stroke="var(--sage)" stroke-width="0.6" opacity="0.4"/>
+          <line x1="16" y1="6" x2="16" y2="34" stroke="var(--sage)" stroke-width="0.6" opacity="0.4"/>
+          <polyline points="18,28 22,20 26,24 30,16" stroke="var(--muted-gold)" stroke-width="1.2" fill="none" opacity="0.7"/>
+        </svg>
+        <span class="offering-item-label">The Model</span>
+        <span class="offering-item-desc">Our proprietary financial model with assumptions, projections, and sensitivity analysis — available to subscribers.</span>
+      </div>
+      <div class="offering-item">
+        <svg class="offering-item-icon" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="20" cy="20" r="13" stroke="var(--sage)" stroke-width="1" fill="none"/>
+          <circle cx="20" cy="20" r="7" stroke="var(--sage)" stroke-width="0.8" fill="none" opacity="0.5"/>
+          <circle cx="20" cy="20" r="2" fill="var(--muted-gold)" opacity="0.6"/>
+        </svg>
+        <span class="offering-item-label">The Research</span>
+        <span class="offering-item-desc">The complete research package — industry analysis, competitive positioning, risk factors, and catalysts.</span>
+      </div>
+      <div class="offering-item">
+        <svg class="offering-item-icon" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20,6 L20,34" stroke="var(--sage)" stroke-width="1" opacity="0.6"/>
+          <path d="M10,20 L20,10 L30,20" stroke="var(--muted-gold)" stroke-width="1.2" fill="none" opacity="0.7"/>
+          <line x1="10" y1="28" x2="30" y2="28" stroke="var(--sage)" stroke-width="0.8" opacity="0.4"/>
+        </svg>
+        <span class="offering-item-label">The Verdict</span>
+        <span class="offering-item-desc">A clear-eyed assessment of risk and reward. No hedging our language. We tell you what we believe and why.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ GROVE DIVIDER ═══════════ -->
+<div class="grove-divider">
+  <svg viewBox="0 0 1400 200" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="divGrad" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0%" stop-color="transparent"/>
+        <stop offset="50%" stop-color="rgba(107,127,94,0.12)"/>
+        <stop offset="100%" stop-color="transparent"/>
+      </linearGradient>
+    </defs>
+    <line x1="200" y1="100" x2="1200" y2="100" stroke="url(#divGrad)" stroke-width="0.5"/>
+    <g transform="translate(650,80)" opacity="0.15">
+      <path d="M0,20 C0,20 -8,10 -5,0 C-2,-5 2,-5 5,0 C8,10 0,20 0,20Z" fill="#4A5E3A"/>
+      <path d="M0,20 C0,20 8,8 15,5 C20,3 18,10 12,15 C6,20 0,20 0,20Z" fill="#3D5435"/>
+      <path d="M0,20 C0,20 -8,8 -15,5 C-20,3 -18,10 -12,15 C-6,20 0,20 0,20Z" fill="#3D5435"/>
+      <circle cx="3" cy="5" r="2" fill="rgba(90,110,140,0.3)"/>
+      <circle cx="-4" cy="8" r="1.5" fill="rgba(90,110,140,0.25)"/>
+    </g>
+    <g transform="translate(400,90)" opacity="0.1">
+      <path d="M0,15 C0,15 -6,8 -4,0 C-2,-3 2,-3 4,0 C6,8 0,15 0,15Z" fill="#4A5E3A"/>
+      <circle cx="2" cy="4" r="1.5" fill="rgba(90,110,140,0.2)"/>
+    </g>
+    <g transform="translate(950,85)" opacity="0.1">
+      <path d="M0,15 C0,15 -6,8 -4,0 C-2,-3 2,-3 4,0 C6,8 0,15 0,15Z" fill="#4A5E3A"/>
+      <circle cx="-2" cy="3" r="1.5" fill="rgba(90,110,140,0.2)"/>
+    </g>
+  </svg>
+</div>
+
+<!-- ═══════════ SIGNUP ═══════════ -->
+<section class="signup" id="subscribe">
+  <div class="signup-grove-scene">
+    <svg viewBox="0 0 1400 500" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg">
+      <g opacity="0.4">
+        <path d="M100,500 L100,250 C100,250 70,240 60,200 C55,175 80,155 100,145 C90,128 105,100 100,80 C100,80 115,105 120,135 C135,122 140,150 130,175 C148,185 140,225 125,245 L125,500Z" fill="#2C3E2C"/>
+      </g>
+      <g opacity="0.3">
+        <path d="M350,500 L350,280 C350,280 328,270 322,240 C316,218 338,200 350,192 C342,178 355,155 350,140 C350,140 365,160 368,185 C380,175 385,198 376,215 C390,222 382,252 374,275 L374,500Z" fill="#2C3E2C"/>
+      </g>
+      <g opacity="0.25">
+        <path d="M600,500 L600,300 C600,300 575,288 568,255 C562,230 585,212 600,202 C590,185 605,158 600,142 C600,142 618,165 622,192 C636,180 642,208 632,228 C648,238 640,272 630,295 L630,500Z" fill="#2C3E2C"/>
+      </g>
+      <g opacity="0.3">
+        <path d="M850,500 L850,270 C850,270 830,260 824,232 C818,212 838,195 850,186 C842,172 855,148 850,134 C850,134 865,155 870,180 C882,170 886,195 878,212 C892,220 884,255 876,268 L876,500Z" fill="#2C3E2C"/>
+      </g>
+      <g opacity="0.35">
+        <path d="M1100,500 L1100,260 C1100,260 1075,248 1068,215 C1062,192 1085,172 1100,162 C1090,145 1105,115 1100,98 C1100,98 1118,120 1122,150 C1136,138 1142,168 1132,190 C1148,200 1140,238 1130,255 L1130,500Z" fill="#2C3E2C"/>
+      </g>
+      <g opacity="0.2">
+        <path d="M1300,500 L1300,290 C1300,290 1282,280 1276,255 C1272,238 1288,222 1300,215 C1294,202 1305,182 1300,168 C1300,168 1312,185 1316,208 C1326,198 1330,218 1322,232 C1334,240 1328,268 1320,285 L1320,500Z" fill="#2C3E2C"/>
+      </g>
+    </svg>
+  </div>
+  <div class="signup-glow"></div>
+  <div class="signup-inner reveal">
+    <p class="section-label">Join Us</p>
+    <h2>Enter the Grove</h2>
+    <p>Subscribe to receive our weekly investment letter and gain access to the full research archive. One stock. One thesis. Every week.</p>
+    <div class="signup-form">
+      <input type="email" placeholder="Your email address" aria-label="Email address">
+      <button type="button">Subscribe</button>
+    </div>
+    <p class="signup-note">Free weekly letter. Unsubscribe anytime. Your email stays in the grove.</p>
+  </div>
+</section>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer class="footer">
+  <p class="footer-brand">Juniper Grove Research</p>
+  <div class="footer-links">
+    <a href="#">Substack</a>
+    <a href="#">Twitter</a>
+    <a href="#">Archive</a>
+    <a href="#">About</a>
+  </div>
+  <p class="footer-copy">&copy; 2026 Juniper Grove Research. All rights reserved.</p>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
